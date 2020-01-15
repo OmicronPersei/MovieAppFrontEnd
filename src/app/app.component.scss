@@ -1,0 +1,16 @@
+#home-body{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.mat-grid-tile{
+  background-color: grey !important;
+  margin: 15px;
+}
+
+.mat-grid-list{
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 2em;
+}
