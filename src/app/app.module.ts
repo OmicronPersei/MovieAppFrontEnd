@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatGridListModule} from "@angular/material/grid-list";
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MoviesModule} from "./movies/movies.module";
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatGridListModule,
+    MatToolbarModule,
+    MoviesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

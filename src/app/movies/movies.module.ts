@@ -12,6 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,11 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule
+  ],
+  exports: [
+    MovieListComponent
   ],
   providers: [
     MovieService
