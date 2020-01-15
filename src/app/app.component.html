@@ -1,22 +1,6 @@
 <div id="home-body">
-  <h1>Movie App</h1>
-  <div>
-    <h2>Find a movie...</h2>
-    <div>
-      <input type="text"/>
-      <button>Search</button>
-    </div>
-  </div>
-  <mat-grid-list cols="4" rowHeight="4:1">
-    <mat-grid-tile>1</mat-grid-tile>
-    <mat-grid-tile>2</mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
-    <mat-grid-tile>1</mat-grid-tile>
-    <mat-grid-tile>2</mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
-  </mat-grid-list>
+  <mat-toolbar color="primary">{{title}}</mat-toolbar>
+  <router-outlet></router-outlet>
+  <app-movie-list></app-movie-list>
 </div>
 
-<router-outlet></router-outlet>

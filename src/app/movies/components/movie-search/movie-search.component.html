@@ -1,0 +1,34 @@
+<div fxLayout="column"
+     fxLayoutAlign="start center">
+
+  <form fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="8px"
+        class="search-box mat-elevation-z3"
+        [formGroup]="searchFormGroup"
+        (submit)="submit()">
+    <!-- Name -->
+    <mat-form-field class="name">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <!-- Genre -->
+    <mat-form-field class="genre">
+      <mat-label>Genre</mat-label>
+      <mat-select formControlName="genre">
+        <mat-option *ngFor="let genre of genres" [value]="genre.id">
+          {{genre.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Time -->
+    <mat-form-field class="time">
+      <input matInput type="time" placeholder="Show Time" formControlName="time">
+    </mat-form-field>
+
+    <!-- Submit -->
+    <button mat-raised-button type="submit" color="primary">Search</button>
+  </form>
+</div>
