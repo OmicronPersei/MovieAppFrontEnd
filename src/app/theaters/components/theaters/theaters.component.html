@@ -1,0 +1,31 @@
+<div class="theaters">
+  <mat-list class="list mat-elevation-z3">
+    <div class="list-header"
+         fxLayout="row"
+         fxLayoutAlign="start center">
+      <h2>Theaters</h2>
+      <span fxFlex></span>
+      <button mat-icon-button (click)="add()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <mat-list-item *ngFor="let theater of (theaters$ | async) "
+                   class="theater mat-elevation-z3">
+      <div fxLayout="row"
+           fxLayoutAlign="start center">
+        <h4 fxFlex="30"> {{theater.name}} </h4>
+        <p fxFlex="15"> Long:{{theater.longitude}} </p>
+        <p fxFlex="15"> Lat:{{theater.latitude}} </p>
+        <span fxFlex></span>
+        <button mat-icon-button
+                (click)="edit(theater.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button
+                (click)="delete(theater.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

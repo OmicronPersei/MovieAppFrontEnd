@@ -1,6 +1,28 @@
-<div id="home-body">
-  <mat-toolbar color="primary">{{title}}</mat-toolbar>
+<div class="root">
+  <mat-toolbar color="primary"
+               fxLayout="row"
+               fxLayoutAlign="start center">
+    <span>{{title}}</span>
+    <span fxFlex></span>
+
+    <!-- Menu -->
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu"
+              [overlapTrigger]="true">
+      <button mat-menu-item
+              routerLink="movies/search">
+        <span>Movie Search</span>
+      </button>
+      <button mat-menu-item
+              routerLink="theaters">
+        <span>Theaters</span>
+      </button>
+
+    </mat-menu>
+
+  </mat-toolbar>
   <router-outlet></router-outlet>
-  <app-movie-list></app-movie-list>
 </div>
 
