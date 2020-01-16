@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {TheaterService} from '../../services/theater.service';
 import {Observable} from 'rxjs';
 import {Theater} from '../../models/theater';
+import {MatDialog} from '@angular/material/dialog';
+import {AddEditTheaterDialogComponent, DialogType} from '../add-edit-theater-dialog/add-edit-theater-dialog.component';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-theaters',
@@ -10,9 +13,11 @@ import {Theater} from '../../models/theater';
 })
 export class TheatersComponent implements OnInit {
   theaters$: Observable<Theater[]>;
+  loading = false;
 
   constructor(
-    private theaterService: TheaterService
+    private theaterService: TheaterService,
+    private dialog: MatDialog
   ) {
   }
 
@@ -21,11 +26,21 @@ export class TheatersComponent implements OnInit {
   }
 
   public add(): void {
-    console.log('Add theater.');
+    this.dialog.open<AddEditTheaterDialogComponent>(AddEditTheaterDialogComponent, {disableClose: true})
+      .afterClosed().subscribe(() => {
+      this.getTheaters();
+    });
   }
 
-  public edit(theaterId: number): void {
-    console.log(`Edit theater: ${theaterId}.`);
+  public edit(theater: Theater): void {
+    this.dialog.open<AddEditTheaterDialogComponent>(AddEditTheaterDialogComponent, {
+      disableClose: true,
+      data: {
+        theater, dialogType: DialogType.Edit
+      }
+    }).afterClosed().subscribe(() => {
+      this.getTheaters();
+    });
   }
 
   public delete(theaterId: number): void {
@@ -33,6 +48,8 @@ export class TheatersComponent implements OnInit {
   }
 
   private getTheaters(): void {
-    this.theaters$ = this.theaterService.getTheaters();
+    this.loading = true;
+    this.theaters$ = this.theaterService.getTheaters()
+      .pipe(tap(() => this.loading = false));
   }
 }

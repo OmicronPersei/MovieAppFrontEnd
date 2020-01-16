@@ -9,6 +9,7 @@
         <mat-icon>add</mat-icon>
       </button>
     </div>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate" color="primary"></mat-progress-bar>
     <mat-list-item *ngFor="let theater of (theaters$ | async) "
                    class="theater mat-elevation-z3">
       <div fxLayout="row"
@@ -18,7 +19,7 @@
         <p fxFlex="15"> Lat:{{theater.latitude}} </p>
         <span fxFlex></span>
         <button mat-icon-button
-                (click)="edit(theater.id)">
+                (click)="edit(theater)">
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-icon-button

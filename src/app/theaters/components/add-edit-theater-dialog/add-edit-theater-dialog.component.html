@@ -1,0 +1,48 @@
+<div class="add-edit-theater-dialog">
+  <div fxLayout="row"
+       fxLayoutAlign="start center"
+       class="dialog-header">
+    <h3>{{ dialogType === DialogType.Add ? 'Add Theater' : 'Edit Theater' }}</h3>
+    <span fxFlex></span>
+    <button mat-icon-button
+            mat-dialog-close
+            class="close"
+            tabindex="-1">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <form fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="8px"
+        [formGroup]="theaterFormGroup"
+        (submit)="submit()">
+
+    <!-- Name -->
+    <mat-form-field class="name">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <!-- Longitude -->
+    <mat-form-field class="longitude">
+      <mat-label>Longitude</mat-label>
+      <input matInput formControlName="longitude" type="number">
+    </mat-form-field>
+
+    <!-- Latitude -->
+    <mat-form-field class="latitude">
+      <mat-label>Latitude</mat-label>
+      <input matInput formControlName="latitude" type="number">
+    </mat-form-field>
+
+    <button mat-raised-button
+            color="primary"
+            type="submit">
+      Save
+    </button>
+  </form>
+  <mat-progress-bar *ngIf="loading"
+                    mode="indeterminate"
+                    color="primary"
+                    class="loading"></mat-progress-bar>
+</div>
