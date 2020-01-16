@@ -14,12 +14,16 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MoviesComponent} from './components/movies/movies.component';
+import {MatCardModule} from '@angular/material/card';
+import {StarsModule} from '../stars/stars.module';
 
 @NgModule({
   declarations: [
     MovieSearchComponent,
     MovieListComponent,
-    MovieComponent
+    MovieComponent,
+    MoviesComponent
   ],
   imports: [
     MoviesRoutingModule,
@@ -32,7 +36,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ReactiveFormsModule,
     MatButtonModule,
     MatGridListModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCardModule,
+    StarsModule
   ],
   exports: [
     MovieListComponent

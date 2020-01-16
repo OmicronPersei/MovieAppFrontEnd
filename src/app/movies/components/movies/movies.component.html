@@ -1,0 +1,32 @@
+<div class="movies mat-elevation-z3">
+  <div class="list-header"
+       fxLayout="row"
+       fxLayoutAlign="start center">
+    <h2>Movies</h2>
+    <span fxFlex></span>
+    <button mat-icon-button (click)="add()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate" color="primary"></mat-progress-bar>
+  <div fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card *ngFor="let movie of (movies$ | async)"
+              class="movie-card">
+      <mat-card-header>
+        <mat-card-title>{{movie.name}}</mat-card-title>
+        <mat-card-subtitle>
+          <app-stars [rating]="movie.rating"></app-stars>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-actions>
+        <button mat-icon-button (click)="edit(movie)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="delete(movie.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

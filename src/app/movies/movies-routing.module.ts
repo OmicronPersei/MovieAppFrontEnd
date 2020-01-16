@@ -1,16 +1,16 @@
 import {RouterModule, Routes} from '@angular/router';
 import {MovieSearchComponent} from './components/movie-search/movie-search.component';
 import {NgModule} from '@angular/core';
+import {MoviesComponent} from './components/movies/movies.component';
 
 const routes: Routes = [
   {
-    path: 'search',
-    component: MovieSearchComponent
+    path: '',
+    component: MoviesComponent
   },
   {
-    path: '',
-    redirectTo: 'search',
-    pathMatch: 'full'
+    path: 'search',
+    component: MovieSearchComponent
   }
 ];
 
@@ -18,4 +18,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MoviesRoutingModule { }
+export class MoviesRoutingModule {
+}

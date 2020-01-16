@@ -1,0 +1,5 @@
+<div class="stars" [matTooltip]="rating + ' out of 5 stars.'">
+  <mat-icon *ngFor="let stars of filledStars" color="accent">star</mat-icon>
+  <mat-icon *ngIf="showHalfStar" color="accent">star_half</mat-icon>
+  <mat-icon *ngFor="let emptyStars of emptyStars" color="accent">star_border</mat-icon>
+</div>
