@@ -13,6 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from "@angular/material/grid-list";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatSelectModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressBarModule
   ],
   exports: [
     MovieListComponent

@@ -3,6 +3,9 @@ import {MovieService} from '../../services/movie.service';
 import {Genre} from '../../models/genre';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Location} from '../../models/location';
+import {Observable} from 'rxjs';
+import {Movie} from '../../models/movie';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-search',
@@ -11,6 +14,8 @@ import {Location} from '../../models/location';
 })
 export class MovieSearchComponent implements OnInit {
   private location: Location;
+  movies$: Observable<Movie[]>;
+  loading = false;
 
   // Todo: Populate list with service call
   genres = [
@@ -34,7 +39,9 @@ export class MovieSearchComponent implements OnInit {
   }
 
   public submit(): void {
-    // Todo: this.movieService.search();
+    this.loading = true;
+    this.movies$ = this.movieService.search()
+      .pipe(tap(() => this.loading = false));
     console.log(this.searchFormGroup.value);
     console.log(this.location);
   }

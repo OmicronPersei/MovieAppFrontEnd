@@ -2,6 +2,7 @@
   border-radius: 4px;
   padding: 4px 16px;
   margin: 16px;
+  position: relative;
 }
 
 .name {
@@ -14,4 +15,19 @@
 
 .time {
   width: 100px;
+}
+
+.movie-list {
+  width: 100%;
+}
+
+.loading {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-border-bottom-left-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  margin: 0;
+  padding: 0;
 }
